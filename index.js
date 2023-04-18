@@ -67,18 +67,38 @@ const pizzas = [
 // d) Todos los ingredientes de cada pizza (En cada iteración imprimir los ingredientes de la pizza que se esta recorriendo). Ayuda: van a tener que realizar dos recorridos, ya que cada pizza del array de pizzas tiene una propiedad "ingredientes" cuyo valor es un array con ingredientes.
 
 //A
-pizzas.forEach((pizza) => {
-  if (pizza.id % 2 !== 0){
-    console.log(pizza);
-  }
-})
+const idimpares = pizzas.filter((producto)=> {
+  return producto.id % 2 != 0;
+});
+
+console.log(idimpares);
+
+idimpares.forEach((producto) => {
+  console.log(`La ${producto.nombre} tiene id impar`)
+});
 
 //B
 
-pizzas.some(pizza => pizza.precio > 600);
+const Pizzamenora600 = (precio) => {
+  return pizzas.some( (producto) => {
+    return producto.precio < precio;
+  }) ? console.log(`Hay una pizza que vale menos de ${precio}`) : console.log(`No hay pizzas menores a ${precio}`);
+}
+
+console.log(Pizzamenora600(600));
 
 //C
 
+const PizzasNombreyPrecio = pizzas.filter ((pizza)=> {
+  return pizza.nombre && pizza.precio
+}
+);
+
+PizzasNombreyPrecio.forEach((pizza) => {
+  console.log(
+    `La ${pizza.nombre} tiene un precio de ${pizza.precio}`
+  );
+});
 
 
 //D
