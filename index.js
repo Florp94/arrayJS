@@ -2,15 +2,6 @@
 // 🔥 Utilizando métodos de array e iterando sobre el array de pizzas, realizar las siguientes actividades, imprimiendo en consola:
 
 
-// TODAS  las respuestas deben ser USER-FRIENDLY. 
-// Si (como en el punto B), la respuesta es un booleano (true o false, hay o no hay), no imprimir el booleano , imprimir en consola una respuesta que toda persona pueda entender, sepa o no de programación (Es decir, no podemos imprimir un array o un objeto en consola, por ejemplo).
-
-// Manejemos cada respuesta, pensando en que un usuario promedio va a leer eso. 
- 
-// Un ejemplo de lo que sería una repuesta "user-friendly": "La pizza X, tiene un valor de $XXXX”. 💸
-
-
-
 const pizzas = [
   {
     id: 1,
@@ -96,9 +87,17 @@ const PizzasNombreyPrecio = pizzas.filter ((pizza)=> {
 
 PizzasNombreyPrecio.forEach((pizza) => {
   console.log(
-    `La ${pizza.nombre} tiene un precio de ${pizza.precio}`
+    `La ${pizza.nombre} tiene un precio de $${pizza.precio}`
   );
 });
 
 
 //D
+
+const pizzasnombreeIngredientes = pizzas.filter ((pizza) => {
+  return pizza.nombre && pizza.ingredientes
+});
+
+pizzasnombreeIngredientes.forEach((pizza) => {
+  console.log(`La ${pizza.nombre} tiene los siguientes ingredientes ${pizza.ingredientes}`);
+});
